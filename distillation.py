@@ -34,7 +34,7 @@ def main(model_student_name, model_teacher_name, pretrained_param, batch_size, n
     dataloader_dict = {"train":train_dataloader, "val":val_dataloader}
 
     # network
-    model_teacher = load_pretrained_model(get_model(model_name=model_teacher_name, pretrained_param=False), get_best_model_path(model_number = 0))
+    model_teacher = load_pretrained_model(get_model(model_name=model_teacher_name, pretrained_param=False), get_best_model_path(model_number = model_number))
     model_student = get_model(model_student_name, pretrained_param)
     
     # loss
@@ -43,7 +43,7 @@ def main(model_student_name, model_teacher_name, pretrained_param, batch_size, n
     # criterior = nn.NLLLoss()
     
     # optimizer
-    optimizer = optim.Adam(model_student.parameters(), lr=0.0005)
+    optimizer = optim.Adam(model_student.parameters(), lr=0.001)
 
     # training
     train_model_kd(model_student, model_teacher, dataloader_dict, optimizer, criterior, criterior_distil, num_epochs)
@@ -55,6 +55,6 @@ if __name__ == "__main__":
     model_teacher_name = "resnet50"
     batch_size = 16
     num_epochs = 20
-    model_number = 0
+    model_number = 0 # model number of teacher model
     
     main(model_student_name, model_teacher_name, pretrained_param, batch_size, num_epochs, model_number)

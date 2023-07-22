@@ -9,7 +9,7 @@ Streamlit
 
 ## DATASET REQUIREMENT
 
-Please download **[stanford-dogs-dataset.zip](https://drive.google.com/file/d/1sAXc9_XvRo2HtzPbfRngfrViMRXNXJfl/view?usp=sharing)** then unzip to get "stanford-dogs-dataset" folder
+Please download **[stanford-dogs-dataset.zip](https://drive.google.com/file/d/1sAXc9_XvRo2HtzPbfRngfrViMRXNXJfl/view?usp=sharing)** or via *Kaggle stanford-dogs-dataset dataset* then unzip to get "stanford-dogs-dataset" folder
 
 ## ENJOY YOURSELF
 
@@ -77,13 +77,9 @@ To train a model which is 20% parameters less than the base model (Resnet50).
 
 I decide to choose well-known models such as (efficientnet_b0, mobilenet_v2, and mobilenet_v3_small) & apply *Response-based knowledge* in Knowledge Distillation.
 
-To demonstrate my approach, pretrained parameters from IMAGENET are not used.
-
 | Model  | Loss | Accuracy |
 | ------------- | ------------- | ------------- |
-| ResNet50  | NaN  | 0.7075  |
-| EfficientNet  |  NaN | NaN  |
-| MobileNetV2  |  NaN |  NaN |
+| EfficientNet  |  11.9173 | 0.3785  |
 
 **II. Build a UI for the model using Streamlit**
 
@@ -93,6 +89,8 @@ streamlit run streamlit.py
 
 -----
 Due to the lack of resources, there are some limitations in my work.
+
+I was only able to train EfficientNet for 10 epochs and did not achieve a very high accuracy
 
 Hopefully, you accept my approach.
 

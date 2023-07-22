@@ -42,7 +42,7 @@ if st.button("Train the model"):
     criterior = nn.CrossEntropyLoss()
     
     # optimizer
-    optimizer = optim.Adam(model.parameters(), lr=0.0005)
+    optimizer = optim.Adam(model.parameters(), lr=0.001)
     
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     device_name = "GPU" if device == "cuda:0" else "CPU"
